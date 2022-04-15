@@ -43,3 +43,18 @@
         max-height: 350px;
     }
 }
+
+.details-title {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.load-info {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
