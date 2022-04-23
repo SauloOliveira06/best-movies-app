@@ -32,6 +32,24 @@ export const DetailsMovies: React.FC = () => {
         )
     }
 
+    const saveMovie = () => {
+
+        const myList = localStorage.getItem('movieList');
+
+        let savedMovies = JSON.parse(myList) || [];
+
+        const hasMovies = savedMovies.some((hasMovie: { id: any; }) => hasMovie.id === detailMovie.id )
+
+        if(hasMovies) {
+            alert('Você já possui este filme salvo!')
+            return;
+        }
+
+        savedMovies.push(detailMovie);
+        localStorage.setItem('movieList', JSON.stringify(savedMovies));
+        alert('Filme salvo com sucesso!');
+    }
+
     return (
         <>
             <div className="container">
@@ -43,7 +61,7 @@ export const DetailsMovies: React.FC = () => {
                     <p>{detailMovie.sinopse}</p>
 
                     <div className='buttons'>
-                        <button onClick={() => { }}>SALVAR</button>
+                        <button onClick={() => saveMovie()}>SALVAR</button>
                         <button>
                             <a href={`https://youtube.com/results?search_query=${detailMovie.nome} Trailer`}>
                                 TRAILER
